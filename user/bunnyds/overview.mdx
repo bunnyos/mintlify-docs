@@ -1,61 +1,79 @@
 ---
 title: "BunnyDS: data & AI, ready to go"
-description: "Turn on BunnyDS to use BunnyOS with no API keys of your own."
+description: "Turn on BunnyDS to run BunnyOS data and AI through the managed gateway, billed to your wallet in USDC."
 ---
 
-BunnyDS lets you use the full BunnyOS terminal without setting up any API keys of your own. When it's on, BunnyOS provides the market data, token security info, and the AI for you. No setup is needed: it works the moment you turn it on.
+BunnyDS lets you use the full BunnyOS terminal without setting up any API keys of your own. When it's on, BunnyOS routes the agent's market data, token security, and AI through its **managed gateway**, and usage is metered against your wallet in USDC on Base. There's nothing to install: turn it on, connect your wallet, approve a spending allowance, and the agent is ready.
 
-<Frame caption="A single toggle routes your data and AI through the managed BunnyDS gateway.">
-  <img src="/images/app/bunnyds.png" alt="The BunnyDS managed data and inference page with the active toggle and spending-limit card" />
-</Frame>
+<Note>
+  BunnyDS only charges once metering is enabled on the gateway. Until then it runs free and no allowance is needed. See [Spending & billing](/user/bunnyds/spending).
+</Note>
 
 ## What you get when BunnyDS is on
 
-With BunnyDS active, BunnyOS supplies everything the agent needs:
+With BunnyDS active, BunnyOS supplies what the agent needs to read markets and reason, with no personal keys required:
 
 | Capability | What it covers |
 | --- | --- |
-| Market & wallet data | Prices, trends, and wallet reads for your portfolio and tokens |
-| Token security | Risk and rug checks on tokens |
-| AI | The agent's chat and reasoning, provided for you |
+| Market & token data | Prices, markets, trending, and on-chain pool data |
+| Portfolio & wallet data | Your holdings and wallet reads for the portfolio dashboard |
+| Token security | Risk and rug checks on Base tokens |
+| AI | The agent's chat and reasoning, on the managed model |
 
 <Note>
-While BunnyDS is on, the AI provider and model controls in the **Configure** tab are hidden, because BunnyOS handles the AI for you.
+  A few providers still use your own key even with BunnyDS on. If a data source on the **configure** page keeps its **set api** button while BunnyDS is active, paste a key there to enable it. See [Configuration: API keys](/user/configure/api-keys).
 </Note>
 
-## Turning BunnyDS on or off
+<Note>
+  While BunnyDS is on, the AI-provider and model controls in the **configure** tab are greyed out, because BunnyOS supplies the model for you.
+</Note>
 
-Open the **BunnyDS** page (titled *bunny data services*) and use the toggle at the top of the card.
+## The bunny data services page
+
+Open the **BunnyDS** tab, titled *bunny data services* ("bunnyOS managed data + inference gateway"). The page stacks three cards top to bottom:
+
+1. **Status**: the on/off switch for BunnyDS.
+2. **Connect your wallet**: sign in so usage can be billed to your wallet.
+3. **Spending allowance**: approve how much USDC BunnyDS may settle.
+
+### 1. Turn BunnyDS on
 
 <Steps>
-  <Step title="Open the BunnyDS page">
-    Go to the BunnyDS tab. The page shows a status card and a spending-limit card.
-  </Step>
-  <Step title="Read the status indicator">
-    A colored dot and label tell you the current state. A green dot with **bunnyDS active** means BunnyOS is providing your data and AI. A grey dot with **bunnyDS off** means the agent is using your own keys.
+  <Step title="Open the page and read the status">
+    A colored dot and label show the current state. A green dot with **bunnyDS active** means data and inference route through the managed gateway. A grey dot with **bunnyDS off** means the agent uses your own keys from the configure tab.
   </Step>
   <Step title="Flip the toggle">
-    Use the switch on the right of the status card to turn BunnyDS on or off. The status updates as soon as the change is saved.
+    Use the switch at the top right of the status card. The status updates as soon as the change is saved.
   </Step>
 </Steps>
 
 <Warning>
-If a save fails, you'll see a brief "couldn't update bunnyDS, try again" message and the toggle returns to its previous position. Just try again.
+  If a save fails, you'll see a brief "couldn't update bunnyDS, try again" message and the toggle returns to its previous position. Just try again.
 </Warning>
+
+### 2. Connect your wallet
+
+Because usage is billed per wallet, BunnyDS needs to know which wallet is paying. In the **connect your wallet** card, choose **connect wallet** and sign the message in your Base wallet. This mints a BunnyDS session token bound to that wallet, and usage is billed to it. Once connected, the card reads **wallet connected**, and a **reconnect** button lets you sign again if your session expires.
+
+<Note>
+  This signature is only proof that you control the wallet. It does not move any funds. Approving the [spending allowance](/user/bunnyds/spending) is the step that authorizes payment.
+</Note>
+
+### 3. Approve a spending allowance
+
+In the **spending allowance** card, enter an amount of USDC and choose **approve allowance**, then approve the on-chain allowance in your Base wallet. The allowance is a cap: your USDC stays in your wallet, and the gateway only settles what you actually use. You can raise it any time. For the full billing picture, see [Spending & billing](/user/bunnyds/spending).
 
 ## BunnyDS vs. your own keys
 
-Turning BunnyDS **off** means you bring your own keys instead. For when to use each option, see [Data & keys](/user/getting-started/data-and-keys).
-
-BunnyDS is free for now, so spending limits are disabled. See [Spending limits](/user/bunnyds/spending).
+Turning BunnyDS **off** means you bring your own keys instead. For when to use each option, see [Getting data: managed vs your own keys](/user/getting-started/data-and-keys).
 
 ## Related pages
 
 <CardGroup cols={2}>
-  <Card title="Configuration: API keys" icon="key" href="/user/configure/api-keys">
-    Set your own providers and keys to bring your own keys.
+  <Card title="Spending & billing" icon="wallet" href="/user/bunnyds/spending">
+    Approve a USDC allowance and read your live billing figures.
   </Card>
-  <Card title="Connect your wallet" icon="wallet" href="/user/getting-started/wallet-connection">
-    Link the wallet the agent trades from.
+  <Card title="Configuration: API keys" icon="key" href="/user/configure/api-keys">
+    Bring your own providers and keys instead of the managed gateway.
   </Card>
 </CardGroup>

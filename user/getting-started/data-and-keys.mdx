@@ -9,7 +9,7 @@ BunnyOS needs outside data to act on your behalf: **market and security data** (
 
 <CardGroup cols={2}>
   <Card title="BunnyDS (managed)" icon="zap" href="/user/bunnyds/overview">
-    Data and AI are handled for you by BunnyOS. Nothing to set up, it just works. Free for a limited time.
+    Data and AI are handled for you by BunnyOS and billed to your wallet in USDC. Connect your wallet and approve an allowance. Free until metering is enabled.
   </Card>
   <Card title="Bring your own keys" icon="key" href="/user/configure/api-keys">
     You paste your own provider keys and pick your own AI provider. Full control, but you manage the accounts and credits.
@@ -22,14 +22,12 @@ BunnyOS needs outside data to act on your behalf: **market and security data** (
 
 ## BunnyDS (managed), recommended
 
-This is the simplest path and the one most users want. On the **bunny data services** page you'll see a single switch. Flip **bunnyDS active** on and the agent's market data and AI are handled for you. The status line reads:
+This is the simplest path and the one most users want. On the **bunny data services** page, flip **bunnyDS active** on and the agent's market data and AI route through the managed gateway. Then connect your wallet and approve a USDC allowance so usage can be billed to you. See [the BunnyDS overview](/user/bunnyds/overview) for the full walkthrough.
 
-> data and inference handled for you. no setup needed, it just works.
-
-While BunnyDS is on, you don't need any provider keys, and the AI-provider and key sections in the Configure tab are hidden.
+While BunnyDS is on, you don't need to set up most provider keys, and the AI-provider and model sections in the Configure tab are greyed out.
 
 <Tip>
-  BunnyDS is **free for a limited time**, so there's no spending limit to set. The page shows a **spending limit** section, but it stays disabled while it's free.
+  BunnyDS is **free until metering is enabled** on the gateway. While it's free, the spending allowance section stays locked and you pay nothing. Once metering is on, you approve a USDC allowance and pay only for what the agent uses. See [Spending & billing](/user/bunnyds/spending).
 </Tip>
 
 <Warning>
@@ -72,12 +70,12 @@ Each key has a **set api** button with a link to grab a key from the provider, a
 | Setup | None, one switch | Paste a key per provider |
 | Provider keys needed | Zero | You supply each one |
 | AI provider | Handled for you | You pick and configure |
-| Cost | Free for a limited time | Whatever your providers charge |
+| Cost | Metered in USDC, free until enabled | Whatever your providers charge |
 | Best for | Getting started fast | Open-source builds, full control |
 
 <AccordionGroup>
   <Accordion title="Can I use BunnyDS for data but my own AI?">
-    BunnyDS is a single switch covering both data and AI, so there's no way to split them. Turn it off and set your keys in Configure to run your own AI provider.
+    BunnyDS covers both data and AI together, so there's no way to split them. Turn it off and set your keys in Configure to run your own AI provider.
   </Accordion>
   <Accordion title="What happens to keys I already set if I turn BunnyDS on?">
     They're kept but not used. While BunnyDS is active the agent uses the managed option, so your saved keys aren't used until you turn it off again.

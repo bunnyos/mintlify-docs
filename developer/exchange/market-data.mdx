@@ -1,12 +1,12 @@
 ---
 title: "Market Data"
-description: "Read creator-key listings, price candles, trade history, and profit-and-loss."
+description: "Read bunny-key listings, price candles, trade history, and profit-and-loss."
 ---
 
 The bunnyOS Exchange REST API exposes the read side of the marketplace: the list of creators (bunnies), per-key price history, the global trade tape, and a caller's profit-and-loss ledger. These endpoints power dashboards, bots, and analytics without ever touching a private key.
 
 <Note>
-**Reads, not trades.** Buying and selling creator keys happens **on-chain**, against the bonding-curve contract on **Base mainnet (chainId `8453`)**, not through this REST API. The endpoints on this page are read-only market and account data. See [Authentication](/developer/exchange/authentication) for how to mint a JWT and [Exchange overview](/developer/exchange/overview) for the full picture.
+**Reads, not trades.** Buying and selling bunny keys happens **on-chain**, against the bonding-curve contract on **Base mainnet (chainId `8453`)**, not through this REST API. The endpoints on this page are read-only market and account data. See [Authentication](/developer/exchange/authentication) for how to mint a JWT and [Exchange overview](/developer/exchange/overview) for the full picture.
 </Note>
 
 All requests target the hosted base URL:

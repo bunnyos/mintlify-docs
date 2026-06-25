@@ -1,37 +1,74 @@
 ---
-title: "Spending limits"
-description: "BunnyDS is free for a limited time, so spending limits are turned off for now."
+title: "Spending & billing"
+description: "Approve a USDC allowance for BunnyDS and track your allowance, balance, owed, and credit."
 ---
 
-When [BunnyDS](/user/bunnyds/overview) is on, BunnyOS provides your market data and AI. The **spending limit** card on the *bunny data services* page is where that usage will eventually be billed and capped.
+When [BunnyDS](/user/bunnyds/overview) is on, the agent's data and AI run through the managed gateway, and usage is metered against your wallet and settled in USDC on Base. This page covers the **spending allowance** you approve and the billing figures the page shows.
 
-## The spending limit card
+## How billing works
 
-Below the on/off status card you'll find a **spending limit** card with a **monthly limit** field and an **approve spending limit** button. This is where you'll set a monthly cap once paid usage begins, so the agent is never billed more than you've approved.
+BunnyDS is pay-as-you-go. You grant a **USDC allowance**, a cap on how much the gateway may settle from your wallet, and you pay only for what the agent actually uses. Your USDC stays in your own wallet until it is settled, so approving an allowance never moves funds on its own.
 
-BunnyDS is free for a limited time, so there's nothing to bill yet. The card is greyed out and both controls are turned off: you can turn BunnyDS on and use data and AI at $0 with no approval step.
+To have spendable credit you need two things: an allowance that is high enough, and a real USDC balance to back it. Your **credit** is whichever of those is smaller, minus what you already owe.
 
 <Note>
-The turned-off spending controls only relate to paying for data and AI, not to your trading. You still need a wallet connected to trade with the agent. See [Connect your wallet](/user/getting-started/wallet-connection).
+  These spending controls are only about paying for data and AI. They are separate from your trading: you still need a connected wallet with its own funds to trade with the agent. See [Connect your wallet](/user/getting-started/wallet-connection).
 </Note>
 
-When paid tiers arrive, the **monthly limit** you approve becomes the ceiling: usage is billed against it from your wallet, up to the cap you set.
+## Approve a spending allowance
+
+The **spending allowance** card sits below the status and connect cards on the *bunny data services* page.
+
+<Steps>
+  <Step title="Enter an amount">
+    Type an amount in the **USDC allowance** field. This is the total USDC the gateway may settle over time, not a per-use charge.
+  </Step>
+  <Step title="Approve allowance">
+    Choose **approve allowance** and approve the on-chain allowance in your Base wallet. Approving needs only your Base wallet to sign, so you can set an allowance without connecting first. After it confirms, your new allowance appears in the figures below. It can take up to a minute to update.
+  </Step>
+</Steps>
+
+<Note>
+  To see your live billing figures, connect your wallet on the BunnyDS page first. Approving an allowance works without connecting, but the allowance, balance, owed, and credit figures only appear once your wallet is connected. See [the BunnyDS overview](/user/bunnyds/overview).
+</Note>
+
+<Tip>
+  You can raise the cap any time by approving a new total. To stop BunnyDS spending entirely, approve an allowance of 0, or turn BunnyDS off.
+</Tip>
+
+## Your billing figures
+
+Once your wallet is connected, the card shows four live figures:
+
+| Field | What it shows |
+| --- | --- |
+| allowance | The USDC cap you have approved for the gateway |
+| balance | Your wallet's USDC balance |
+| owed | Usage you have run up but not yet settled |
+| credit | Your remaining spendable headroom |
+
+Your **credit** is the smaller of your allowance and your balance, minus what you owe. When it reaches zero, billed requests stop until you raise the allowance or top up your USDC. A `—` means there is nothing to show yet.
+
+## When BunnyDS is free
+
+If metering is not enabled on the gateway, BunnyDS runs free: the spending allowance card is greyed out with a note that metering is not enabled yet and no allowance is needed. You can turn BunnyDS on and use data and AI at no cost, with no approval step.
 
 <Warning>
-Prices and tiers aren't finalized while BunnyDS is free. Treat the spending controls as a preview of what's coming, not a live billing screen.
+  If BunnyDS is not available on your deployment at all, bring your own provider keys instead. See [Getting data: managed vs your own keys](/user/getting-started/data-and-keys).
 </Warning>
 
-If BunnyDS isn't available on your deployment, bring your own provider keys instead. See [Getting data: managed vs your own keys](/user/getting-started/data-and-keys).
-
 <AccordionGroup>
-  <Accordion title="Will I be charged while BunnyDS is free?">
-    No. The spending controls are turned off and nothing is billed from your wallet for BunnyDS usage. Your normal trading still uses your own funds as usual.
+  <Accordion title="Will I be charged for BunnyDS?">
+    Only when metering is enabled and you have approved an allowance. Even then, your USDC stays in your wallet until the gateway settles what you actually used, and never beyond the allowance you set. While BunnyDS is free, nothing is billed.
   </Accordion>
-  <Accordion title="Why can't I type a monthly limit?">
-    The field is intentionally turned off while it's free. There's nothing to cap yet, so the input and the approve button stay off until paid tiers go live.
+  <Accordion title="Why can't I enter an allowance?">
+    The card is locked while metering is not enabled on the gateway. There is nothing to cap yet, so the field and the approve button stay off until metering goes live.
   </Accordion>
-  <Accordion title="Can I avoid BunnyDS billing entirely?">
-    Yes. See [Managed vs your own keys](/user/getting-started/data-and-keys) for running data and AI on your own provider keys.
+  <Accordion title="How do I stop spending?">
+    Approve an allowance of 0, or turn BunnyDS off on the status card. Either one stops the gateway from settling anything further.
+  </Accordion>
+  <Accordion title="My new allowance or balance hasn't updated">
+    The on-chain figures are read on a short delay and refresh roughly every 15 seconds. Give a new approval up to a minute to appear.
   </Accordion>
 </AccordionGroup>
 
@@ -39,13 +76,10 @@ If BunnyDS isn't available on your deployment, bring your own provider keys inst
 
 <CardGroup cols={2}>
   <Card title="BunnyDS: data & AI, ready to go" icon="zap" href="/user/bunnyds/overview">
-    Turn BunnyDS on or off and see what it covers.
+    Turn BunnyDS on, connect your wallet, and see what it covers.
   </Card>
   <Card title="Managed vs your own keys" icon="key" href="/user/getting-started/data-and-keys">
     Compare BunnyDS with bringing your own provider keys.
-  </Card>
-  <Card title="Configuration: API keys" icon="sliders-horizontal" href="/user/configure/api-keys">
-    Set your own provider and AI keys to use your own keys.
   </Card>
   <Card title="Connect your wallet" icon="wallet" href="/user/getting-started/wallet-connection">
     Link the wallet the agent trades from.
