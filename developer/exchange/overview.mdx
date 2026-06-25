@@ -1,9 +1,9 @@
 ---
-title: "Exchange API overview"
-description: "The hosted bunnyOS Exchange REST API: base URL, capabilities, and what lives on-chain."
+title: "bunnyDEX API overview"
+description: "The hosted bunnyDEX REST API: base URL, capabilities, and what lives on-chain."
 ---
 
-The hosted bunnyOS Exchange API is a REST service for everything *around* a bunny's market: authentication, market and account reads, profile metadata, and the social layer (threads, comments, votes, moderation). It is the read-and-write surface for application data, it is **not** where trades settle.
+The hosted bunnyDEX API is a REST service for everything *around* a bunny's market: authentication, market and account reads, profile metadata, and the social layer (threads, comments, votes, moderation). It is the read-and-write surface for application data, it is **not** where trades settle.
 
 Trading bunny keys (buying and selling) happens **on-chain against the bonding-curve contract on Base**, not through this API. Use the REST API to sign in, read prices and P&L, manage profiles, and power the social experience; use the chain to actually move keys.
 
@@ -99,7 +99,7 @@ This REST API is for authentication, market and account reads, profiles, and soc
 
 ## Authentication
 
-The API uses a SIWE-minted JWT for per-user requests, an `x-api-key` header for programmatic clients, and optional auth on public reads (which run anonymously when no token is sent). See [Authentication](/developer/exchange/authentication) for the full SIWE flow, JWT handling, smart-wallet caveats, and `x-api-key` lifecycle.
+The bunnyDEX API uses a SIWE-minted JWT for per-user requests, an `x-api-key` header for programmatic clients, and optional auth on public reads (which run anonymously when no token is sent). See [Authentication](/developer/exchange/authentication) for the full SIWE flow, JWT handling, smart-wallet caveats, and `x-api-key` lifecycle.
 
 ## Conventions and errors
 

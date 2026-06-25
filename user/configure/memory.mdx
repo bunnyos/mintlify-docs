@@ -13,7 +13,7 @@ The memory tab is one large text editor. There is no rigid form, just a note you
 
 A few things to know:
 
-- It is **plain text**. Headings, bullet lists, and emphasis all work, but plain sentences are fine too.
+- It is **markdown**. Headings, bullet lists, and emphasis all work, but plain sentences are fine too.
 - Changes are not saved as you type. Edit freely, then commit with **save**, or discard your edits with **revert**.
 
 <Steps>
@@ -37,7 +37,7 @@ Good things to capture:
 | Topic | Examples |
 | --- | --- |
 | Investment style | Long-term holder vs. active trader, sectors you favor (DeFi, memecoins, blue chips) |
-| Risk tolerance | How much volatility you accept, max position sizes, leverage comfort on [perps](/user/perps/trading) |
+| Risk tolerance | How much volatility you accept, max position sizes, how concentrated a single position can get |
 | Strategies | Recurring plans like DCA schedules, rebalancing rules, take-profit and stop-loss habits |
 | Constraints | Tokens or protocols to avoid, time horizon, amounts you never want to exceed |
 | Goals | What you are trying to achieve: yield, accumulation, capital preservation |
@@ -57,14 +57,14 @@ The agent keeps your saved note in view and draws on it when it makes suggestion
 Keep the note focused. A tight, well-organized memory steers the agent more reliably than a long, rambling one.
 
 <Note>
-Memory applies whether you use [BunnyDS](/user/bunnyds/overview) or [bring your own keys](/user/configure/api-keys). It is your context, attached to your settings.
+Memory applies whether you use [bunnyCompute](/user/bunnyds/overview) or [bring your own keys](/user/configure/api-keys). It is your context, attached to your settings.
 </Note>
 
 ## Import and export
 
 Two buttons sit above the editor:
 
-- **export**: downloads your current memory as a file. Use this to back it up or edit it in your own text editor.
+- **export**: downloads your current memory as a markdown (.md) file. Use this to back it up or edit it in your own text editor.
 - **import**: opens a file picker, then saves the chosen file's contents.
 
 <Warning>

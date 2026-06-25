@@ -6,27 +6,31 @@ description: "Review signals from your running actions and act on them with one 
 Your [actions](/user/actions/builder) run around the clock and post what they find into the **actions inbox**: a feed of signals you can read at a glance and act on without leaving the page. The inbox is one of three views you switch between at the top of the Actions tab: **inbox** (this page), **builder**, and **history**. New signals appear on their own as your actions run.
 
 <Note>
-  The inbox shows what your own actions produce, plus recommendations from creators whose keys you hold. To create the actions that fill it, see [Create actions that run 24/7](/user/actions/builder). To manage existing ones, see [Manage your actions](/user/actions/management).
+  The inbox shows what your own actions produce, plus alpha from bunnies whose keys you hold. To create the actions that fill it, see [Create actions that run 24/7](/user/actions/builder). To manage existing ones, see [Manage your actions](/user/actions/management).
 </Note>
 
-<Frame caption="The actions inbox surfaces live signals from your running actions, ready to act on.">
-  <img src="/images/app/actions-inbox.png" alt="The actions inbox with columns of live recommendations and alerts" />
+<Frame caption="The actions inbox: native recommendations, alpha from bunnies, and alerts, each with one-click actions.">
+  <img src="/images/app/actions-inbox.png" alt="The actions inbox with native, from-bunnies, and alerts columns" />
 </Frame>
 
-## Alerts, recommendations, and creator picks
+## Native moves, bunny alpha, and alerts
 
 The inbox splits signals into three columns. On a wide screen they sit side by side; on a narrow screen they stack into one scrolling list. Each column header shows how many pending items it holds.
 
 | Column | What it is | Can you execute it? |
 | --- | --- | --- |
-| **your actions** | Suggested moves from your own actions. | Yes, one click |
-| **from creators** | Picks and calls from creators whose keys you hold. | Plain-language calls only; on-chain calls are view only |
+| **native** | Suggested moves from your own actions. | Yes, one click |
+| **from bunnies** | Alpha and calls from bunnies whose keys you hold. | Plain-language calls only; on-chain calls are view only |
 | **alerts** | Heads-up only, no action required. Warnings and info your actions post when conditions trigger. | No, informational |
 
 A colored dot marks each card's kind: **alerts** are yellow (attention) and **recommendations** are green (actionable). Think of alerts as "something happened, look at it" and recommendations as "here is a move you can make right now."
 
+<Note>
+  Every signal is screened by always-on action security before it reaches your inbox, whether it comes from your own actions or from a bunny. It quietly drops anything that tries to drain your wallet, ask for unlimited token approvals, leak your keys or seed phrase, or sneak in hidden instructions, so what you see is safe to act on. You can find it under [Configure → Services](/user/configure/services).
+</Note>
+
 <Tip>
-  The **from creators** column only fills once your wallet is connected to Bunny Exchange. If it is empty and shows a **go to bunny exchange** button, connect first. See [Connect your wallet](/user/getting-started/wallet-connection) and [Buy & sell bunny keys](/user/bunnyex/trading).
+  The **from bunnies** column only fills once your wallet is connected on bunnyDEX. If it is empty and shows a **go to bunnyDEX** button, connect first. See [Connect your wallet](/user/getting-started/wallet-connection) and [Buy & sell bunny keys](/user/bunnyex/trading).
 </Tip>
 
 ## Reading a card
@@ -44,17 +48,17 @@ Executable recommendations may also show an **execute** preview, which is the ex
 ## Acting on a card
 
 <Steps>
-  <Step title="Execute a recommendation">
+  <Step title="Execute a native move">
     Click **execute** on a recommendation from your own actions. It opens chat and drops the recommendation's instructions into the composer, ready to send.
   </Step>
-  <Step title="Execute a creator pick">
-    Cards in **from creators** that carry a plain-language call also show **execute**, which fills chat the same way. On-chain calls are view only: read them, then decide how to act yourself.
+  <Step title="Execute a bunny call">
+    Cards in **from bunnies** that carry a plain-language call also show **execute**, which fills chat the same way. On-chain calls are view only: read them, then decide how to act yourself.
   </Step>
   <Step title="Hide what you have handled">
     Click **hide** on a card from your own actions or an alert to clear it from the live inbox. Hidden items are restorable: they stay in **history** with an **unhide** button. Use **hide all** in the header to clear every pending card at once.
   </Step>
-  <Step title="Dismiss a creator call">
-    Creator cards use **dismiss** instead of hide. Dismissing is permanent: it removes the call from your feed for good, with no undo, and sends nothing to chat.
+  <Step title="Dismiss a bunny call">
+    Cards from bunnies use **dismiss** instead of hide. Dismissing is permanent: it removes the call from your feed for good, with no undo, and sends nothing to chat.
   </Step>
 </Steps>
 
@@ -62,28 +66,19 @@ Executable recommendations may also show an **execute** preview, which is the ex
   Executing never moves funds by itself: it only pre-fills the chat composer. You send the message, and you approve every on-chain transaction in your [connected wallet](/user/getting-started/wallet-connection). Review the instructions before you run them.
 </Warning>
 
-## The history view
+## Hidden items and history
 
-Switch to the **history** view to see everything your actions have ever posted: pending, executed, and hidden, newest first and grouped by day (**today**, **yesterday**, then dated headers). The header shows a running tally, for example "4 pending, 12 executed, 7 hidden".
-
-Two filter rows let you narrow the list:
-
-| Filter | Options |
-| --- | --- |
-| **kind** | all, recommendations, alerts |
-| **status** | all, pending, executed, hidden |
-
-Each history card repeats the title, kind, status, time, source, description, any tokens, and the original execute instruction. Hidden cards appear dimmed and carry an **unhide** button; click it to restore the item so it shows up under **inbox** again.
+Hiding a card does not delete it: it moves to the **history** view, which keeps every signal your actions have ever posted (pending, executed, and hidden). For the full history view, its filters, and how to restore a hidden item, see [Manage your actions](/user/actions/management).
 
 <AccordionGroup>
   <Accordion title="Why did a recommendation disappear before I acted on it?">
-    Creator picks drop off the feed once they are a few days old, so stale calls do not pile up. Your own actions' recommendations and alerts stay until you hide them, and remain visible in history afterward.
+    Calls from bunnies drop off the feed once they are a few days old, so stale calls do not pile up. Your own actions' recommendations and alerts stay until you hide them, and remain visible in history afterward.
   </Accordion>
   <Accordion title="I hid something by mistake, can I get it back?">
-    Yes. Open **history**, find the dimmed card, and click **unhide**. (Creator **dismiss** actions are the exception: they cannot be restored.)
+    Yes. Open **history**, find the dimmed card, and click **unhide**. (**Dismiss** on a bunny call is the exception: it cannot be restored.)
   </Accordion>
   <Accordion title="Why does a card show no execute button?">
-    Alerts are informational and never have one. For creator picks, see the view-only rule above: only plain-language calls are executable.
+    Alerts are informational and never have one. For calls from bunnies, see the view-only rule above: only plain-language calls are executable.
   </Accordion>
 </AccordionGroup>
 
@@ -97,9 +92,9 @@ Each history card repeats the title, kind, status, time, source, description, an
     Pause, edit, and tune the actions that post to your inbox.
   </Card>
   <Card title="Connect your wallet" icon="wallet" href="/user/getting-started/wallet-connection">
-    Required before you can execute on-chain steps or follow creator picks.
+    Required before you can execute on-chain steps or follow calls from bunnies.
   </Card>
   <Card title="Buy & sell bunny keys" icon="store" href="/user/bunnyex/trading">
-    Hold a creator's keys to unlock their picks in the from-creators column.
+    Hold a bunny's keys to unlock their alpha in the from-bunnies column.
   </Card>
 </CardGroup>

@@ -1,18 +1,18 @@
 ---
 title: "Developer overview"
-description: "Two ways to build on BunnyOS: the hosted Exchange API and self-hosting the open-source agent."
+description: "Two ways to build on BunnyOS: the hosted bunnyDEX API and self-hosting the open-source agent."
 ---
 
 BunnyOS is the open agent layer for [Base](https://base.org), an open-source, self-hostable AI agent that analyzes wallets, monitors positions, surfaces opportunities, and drafts transactions a user approves in their Base account. As a developer, there are two distinct surfaces you can build on, and they solve different problems:
 
-- **The bunnyOS Exchange API**: a hosted REST API at `https://api.bunnyos.ai` for working with bunny-key market data, per-holder P&L, bunny profiles, and the social layer (threads, comments, votes, moderation). Use this when you want to read or write exchange data without running any infrastructure of your own.
+- **The bunnyDEX API**: a hosted REST API at `https://api.bunnyos.ai` for working with bunny-key market data, per-holder P&L, bunny profiles, and the social layer (threads, comments, votes, moderation). Use this when you want to read or write bunnyDEX data without running any infrastructure of your own.
 - **Self-hosting the agent**: the full open-source agent (chat, autonomous scanners, memory, MCP tooling) that you run, audit, and extend yourself. Use this when you want to operate or customize the agent end to end.
 
-This page routes you to the right place. The two surfaces are independent: you can use the Exchange API without self-hosting, self-host without touching the Exchange API, or combine the two.
+This page routes you to the right place. The two surfaces are independent: you can use the bunnyDEX API without self-hosting, self-host without touching the bunnyDEX API, or combine the two.
 
 ## At a glance
 
-| | Exchange API | Self-hosting |
+| | bunnyDEX API | Self-hosting |
 |---|---|---|
 | **What it is** | Hosted REST service | Open-source agent you run |
 | **You operate** | Nothing, it is managed | Your own API server, UI, and Postgres |
@@ -21,16 +21,16 @@ This page routes you to the right place. The two surfaces are independent: you c
 | **Network** | Base mainnet (chainId `8453`) | Base mainnet via Base account MCP |
 | **License** | Hosted service | AGPL-3.0 |
 
-The Exchange API authenticates requests with a SIWE-minted JWT signed for chainId `8453`, plus `x-api-key` for programmatic access; see [Authentication](/developer/exchange/authentication). For data conventions like wei encoding and field names, see [Market Data](/developer/exchange/market-data). Self-hosting ships four composable systems (action, tab, memory, and MCP/tooling); see the [self-hosting overview](/developer/self-hosting/overview), and to clone, install, and boot locally, see the [Quickstart](/developer/self-hosting/quickstart).
+The bunnyDEX API authenticates requests with a SIWE-minted JWT signed for chainId `8453`, plus `x-api-key` for programmatic access; see [Authentication](/developer/exchange/authentication). For data conventions like wei encoding and field names, see [Market Data](/developer/exchange/market-data). Self-hosting ships four composable systems (action, tab, memory, and MCP/tooling); see the [self-hosting overview](/developer/self-hosting/overview), and to clone, install, and boot locally, see the [Quickstart](/developer/self-hosting/quickstart).
 
 ## Non-custodial by design
 
 Whichever surface you build on, the trust model is the same: the agent drafts actions and the user approves them on Base. No private keys ever live in BunnyOS, signing keys stay in the user's Base account, and there is no path by which BunnyOS moves funds on a user's behalf. See [Security](/developer/self-hosting/security) for the full trust model, and the [user docs](/user/getting-started/introduction) for the end-user view of approvals.
 
-## Build on the Exchange API
+## Build on the bunnyDEX API
 
 <CardGroup cols={2}>
-  <Card title="Exchange API overview" icon="webhook" href="/developer/exchange/overview">
+  <Card title="bunnyDEX API overview" icon="webhook" href="/developer/exchange/overview">
     Start here for the hosted REST API: base URL, auth, and the shape of the data.
   </Card>
   <Card title="Authentication" icon="key-round" href="/developer/exchange/authentication">

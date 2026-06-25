@@ -53,8 +53,7 @@
             "group": "Portfolio",
             "icon": "wallet",
             "pages": [
-              "user/portfolio/overview",
-              "user/portfolio/defi"
+              "user/portfolio/overview"
             ]
           },
           {
@@ -66,21 +65,12 @@
             ]
           },
           {
-            "group": "Bunny Exchange",
+            "group": "bunnyDEX",
             "icon": "key-round",
             "pages": [
               "user/bunnyex/trading",
               "user/bunnyex/profiles",
               "user/bunnyex/pnl"
-            ]
-          },
-          {
-            "group": "Perpetuals",
-            "icon": "trending-up",
-            "pages": [
-              "user/perps/trading",
-              "user/perps/close",
-              "user/perps/analysis"
             ]
           },
           {
@@ -93,7 +83,7 @@
             ]
           },
           {
-            "group": "BunnyDS",
+            "group": "bunnyCompute",
             "icon": "server",
             "pages": [
               "user/bunnyds/overview",
@@ -126,7 +116,7 @@
             ]
           },
           {
-            "group": "Exchange API",
+            "group": "bunnyDEX API",
             "icon": "key-round",
             "expanded": true,
             "pages": [

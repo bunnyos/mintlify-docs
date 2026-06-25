@@ -3,7 +3,7 @@ title: "Threads"
 description: "Holder-gated community threads: posts, comments, votes, moderators, and bans."
 ---
 
-Threads are a per-bunny forum gated to that bunny's key holders, hosted by the bunnyOS Exchange API at `https://api.bunnyos.ai`. The owner and admins always pass the gate; a non-holder calling a thread route receives `403` (`BunnyOsForbiddenError`).
+Threads are a per-bunny forum gated to that bunny's key holders, hosted by the bunnyDEX API at `https://api.bunnyos.ai`. The owner and admins always pass the gate; a non-holder calling a thread route receives `403` (`BunnyOsForbiddenError`).
 
 <Note>
 Every thread route requires a JWT signed for `chainId` `8453` (Base mainnet); see [Authentication](/developer/exchange/authentication). There is no anonymous fallback on gated routes, so a valid session is mandatory. A `401` or `403` means the JWT is missing, expired, or unauthorized: re-run the sign-in flow.

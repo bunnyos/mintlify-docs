@@ -7,8 +7,8 @@ Bunny is the agent at the heart of BunnyOS. You talk to it in plain language and
 
 Make sure you're signed in first, see [Sign in with your Base wallet](/user/getting-started/wallet-connection) if you haven't connected yet.
 
-<Frame caption="Ask in plain language: Bunny runs the tools, prepares the transaction, and you approve it in your Base app.">
-  <img src="/images/app/chat.png" alt="The Bunny chat answering an ETH price question, then preparing and confirming an ETH to USDC swap" />
+<Frame caption="The floating chat opens over any tab. Ask in plain language, and Bunny runs the tools and prepares the transaction for you to approve in your Base account.">
+  <img src="/images/app/chat.png" alt="The floating chat panel showing a swap request, the agent's tool calls, and an approve button" />
 </Frame>
 
 ## Open the floating chat
@@ -39,7 +39,7 @@ Type your request in the input box (placeholder: **`type your instructions here`
 | --- | --- |
 | `show my portfolio` | Reads your connected wallet and lists your live holdings |
 | `research a token` | Looks up live market data and security findings for a token |
-| `buy 10 OS` | Prepares the swap and hands it to your wallet to sign |
+| `buy 10 $OS` | Prepares the swap and hands it to your wallet to sign |
 | `set a price alert` | Sets up an automated action that watches for your condition |
 
 <Note>
@@ -51,7 +51,7 @@ Type your request in the input box (placeholder: **`type your instructions here`
 As Bunny works, it shows its steps inline instead of leaving you waiting. A status line under the agent's message tells you what it's doing right now:
 
 - **`thinking…`**, deciding what to do next
-- **`running…`**, looking something up or preparing an action
+- **`running {tool}…`**, looking something up or preparing an action (the active tool name fills in, e.g. `running get_portfolio…`)
 - **`responding…`**, writing its answer
 
 When the turn ends, the status line settles on **`done`** (green). If the agent stops early, for example the response is interrupted, it shows **`stopped`** instead, so you're never left guessing whether it's still working.
@@ -82,7 +82,7 @@ After you've signed in your Base app, come back to the chat and click **`click h
 
 | Status | What it means |
 | --- | --- |
-| **`checking…`** | Bunny is looking up the transaction's status |
+| **`checking on-chain…`** | Bunny is looking up the transaction's status |
 | **`congrats — transaction confirmed`** | The transaction went through. A **`view on basescan ↗`** link appears when available |
 | **`still pending — check your wallet`** | Not confirmed yet, wait and use **`check again`** |
 | **`transaction failed`** | The transaction was rejected, reverted, or expired |
@@ -106,6 +106,6 @@ Your conversations are saved automatically. Use **`new chat`** in the panel head
     Turn a request into a reusable action that runs around the clock.
   </Card>
   <Card title="Getting data and keys" icon="key-round" href="/user/getting-started/data-and-keys">
-    Choose between managed BunnyDS and your own keys.
+    Choose between managed bunnyCompute and your own keys.
   </Card>
 </CardGroup>

@@ -3,10 +3,10 @@ title: "Market Data"
 description: "Read bunny-key listings, price candles, trade history, and profit-and-loss."
 ---
 
-The bunnyOS Exchange REST API exposes the read side of the marketplace: the list of creators (bunnies), per-key price history, the global trade tape, and a caller's profit-and-loss ledger. These endpoints power dashboards, bots, and analytics without ever touching a private key.
+The bunnyDEX REST API exposes the read side of the marketplace: the list of creators (bunnies), per-key price history, the global trade tape, and a caller's profit-and-loss ledger. These endpoints power dashboards, bots, and analytics without ever touching a private key.
 
 <Note>
-**Reads, not trades.** Buying and selling bunny keys happens **on-chain**, against the bonding-curve contract on **Base mainnet (chainId `8453`)**, not through this REST API. The endpoints on this page are read-only market and account data. See [Authentication](/developer/exchange/authentication) for how to mint a JWT and [Exchange overview](/developer/exchange/overview) for the full picture.
+**Reads, not trades.** Buying and selling bunny keys happens **on-chain**, against the bonding-curve contract on **Base mainnet (chainId `8453`)**, not through this REST API. The endpoints on this page are read-only market and account data. See [Authentication](/developer/exchange/authentication) for how to mint a JWT and [bunnyDEX API overview](/developer/exchange/overview) for the full picture.
 </Note>
 
 All requests target the hosted base URL:
@@ -247,11 +247,11 @@ Always wrap a wei string in `BigInt` before any arithmetic (parsing it as a `Num
 ```ts
 import { formatUnits } from "viem";
 
-// decimals from the exchange config (token-unit conversion)
+// decimals from the bunnyDEX config (token-unit conversion)
 const tokenUnits = formatUnits(BigInt(weiString), decimals);
 ```
 
-This wei-string convention applies to every money field the Exchange API returns.
+This wei-string convention applies to every money field the bunnyDEX API returns.
 
 ### Worked example: read a bunny end to end
 
@@ -279,7 +279,7 @@ curl https://api.bunnyos.ai/exchange/bunnies/42/pnl \
   <Card title="Profile" icon="id-card" href="/developer/exchange/profile">
     A bunny's name, bio, photo, socials, and methodology.
   </Card>
-  <Card title="Exchange overview" icon="store" href="/developer/exchange/overview">
+  <Card title="bunnyDEX API overview" icon="store" href="/developer/exchange/overview">
     How auth, reads, social, and on-chain trading fit together.
   </Card>
   <Card title="Threads" icon="messages-square" href="/developer/exchange/threads">

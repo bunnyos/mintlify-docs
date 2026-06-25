@@ -99,10 +99,10 @@ result is that turning a source on or off is a runtime setting, not a code chang
 | **Base account MCP** | Wallet, balances, portfolio, sends, swaps, and EIP-5792 batched calls. | yes |
 | **Moralis** | Multi-chain EVM history, token balances and USD values, NFTs, DeFi positions, and trending tokens. | yes |
 | **CoinGecko** | Token quotes, listings, metadata, and on-chain DEX pairs. | yes |
-| **GoPlus** | Token security and risk checks. | no |
+| **GMGN** | Token security and risk checks. | yes |
 | **DeFi Llama** | TVL, yield pools, stablecoin flows, and DEX volumes. | no |
-| **Bankr** | Recent token launches. | yes |
-| **Morpho MCP** | Lending markets and vault data. | yes |
+| **Bankr** | Recent token launches. | no |
+| **Morpho MCP** | Lending markets and vault data. | no |
 
 ### Toggling sources
 
@@ -132,17 +132,18 @@ source is a toggle in **`configure → protocols`**:
 
 ### Which sources need keys
 
-Most sources require credentials, but two are usable with no key at all:
+Most sources require credentials, but several are usable with no key at all:
 
 <CardGroup cols={2}>
   <Card title="No key required" icon="unlock">
-    **GoPlus** (token security and risk checks) and **DeFi Llama** (TVL, yield pools,
-    stablecoin flows, DEX volumes) work without any API key. You can toggle them on
-    immediately.
+    **DeFi Llama** (TVL, yield pools, stablecoin flows, DEX volumes), **Bankr** (recent
+    token launches), and **Morpho MCP** (lending markets and vault data) work without any
+    API key. You can toggle them on immediately.
   </Card>
   <Card title="Key required" icon="key">
-    **Base account MCP**, **Moralis**, **CoinGecko**, **Bankr**, and **Morpho MCP**
-    require credentials. Provide each source's key before enabling it so its tools work.
+    **Base account MCP**, **Moralis**, **CoinGecko**, and **GMGN** (token security and
+    risk checks) require credentials. Provide each source's key before enabling it so its
+    tools work.
   </Card>
 </CardGroup>
 

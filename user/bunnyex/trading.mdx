@@ -1,9 +1,9 @@
 ---
 title: "Buy & sell bunny keys"
-description: "Buy and sell bunny keys on the Bunny Exchange, paid in $OS on Base."
+description: "Buy and sell bunny keys on bunnyDEX, paid in $OS on Base."
 ---
 
-The **Bunny Exchange** (bunnyEX) is a friend.tech-style market for *bunny keys*. Every bunny, whether a person, an agent, an algorithm, or a team, has its own keys that you can buy and sell. A key's price rises as more people buy and falls as keys are sold back, so the price reflects how much demand a bunny has attracted. You pay and receive `$OS`, the bunnyOS token, on Base.
+**bunnyDEX** is a friend.tech-style market for *bunny keys*. Every bunny, whether a person, an agent, an algorithm, or a team, has its own keys that you can buy and sell. A key's price rises as more people buy and falls as keys are sold back, so the price reflects how much demand a bunny has attracted. You pay and receive `$OS`, the bunnyOS token, on Base.
 
 Holding a key also unlocks that bunny's gated recommendations and threads (see [Manage a bunny profile](/user/bunnyex/profiles)). You confirm each buy and sell in your own Base wallet ([nothing moves without your signature](/user/getting-started/introduction)).
 
@@ -11,24 +11,24 @@ Holding a key also unlocks that bunny's gated recommendations and threads (see [
   You need a connected Base account to buy or sell. If you have not linked one yet, start with [Connect your wallet](/user/getting-started/wallet-connection). Browsing, charts, and prices all work even when you are signed out.
 </Note>
 
-<Frame caption="The Bunny Exchange: review a bunny's stats, then buy or sell its keys in $OS.">
-  <img src="/images/app/bunnyex-trading.png" alt="The Bunny Exchange showing a bunny's details, supply, fee, and the buy and sell panel" />
+<Frame caption="bunnyDEX: browse bunnies, a bunny's details and bonding curve, and the buy/sell panel priced in $OS.">
+  <img src="/images/app/bunnydex-trading.png" alt="The bunnyDEX trading view with bunny details, bonding curve, and buy/sell panel" />
 </Frame>
 
 ## How pricing works
 
-Bunny Exchange uses a **bonding curve**, which simply means the price is set by how many keys exist. There is no order book and no one on the other side of your trade. When you buy, the price steps up. When you sell, it steps down. Early keys cost the least, and each key after that costs a little more.
+bunnyDEX uses a **bonding curve**, which simply means the price is set by how many keys exist. There is no order book and no one on the other side of your trade. When you buy, the price steps up. When you sell, it steps down. Early keys cost the least, and each key after that costs a little more.
 
 A small fee is added when you buy and taken out of your proceeds when you sell, so the buy price is always slightly above the sell price. The chart shows this as the small gap between the two.
 
-## Browse creators
+## Browse bunnies
 
-Open Bunny Exchange and the left **discover bunnies** column lists every bunny. Each row shows:
+Open bunnyDEX and the left **discover bunnies** column lists every bunny. Each row shows:
 
 | Field | What it shows |
 | --- | --- |
 | Name / avatar | The bunny's profile name and photo, or a bunny number if it has no profile yet |
-| Creator | The creator's shortened wallet address |
+| Handle | The bunny's linked x handle, or a bunny number if it has none |
 | Buy 1 key | The all-in cost to buy one more key right now, including the fee, in `$OS` |
 | Supply | How many keys currently exist |
 | Your keys | Your own balance for that bunny, shown only when you hold at least one |
@@ -56,7 +56,7 @@ A red **sold out** badge appears on any bunny that has reached its key limit. Se
 </Steps>
 
 <Note>
-  Buying includes a quick approval step in your wallet so the exchange can take your payment. You only ever approve up to your quoted cost plus a small slippage buffer, never more.
+  Buying includes a quick approval step in your wallet so bunnyDEX can take your payment. You only ever approve up to your quoted cost plus a small slippage buffer, never more.
 </Note>
 
 ## Sell keys
@@ -88,7 +88,7 @@ Above the trade form sits a chart of the selected bunny:
 Every estimate is protected against price movement between when you preview and when your trade lands. Each trade carries built-in **slippage protection of 3%**. If the price moves against you by more than 3% before your trade confirms, it cancels rather than filling at a worse price than you expected.
 
 <Warning>
-  Prices are live and move with every trade. The figure you see is an estimate at the current supply, and your final price can differ slightly within the 3% slippage band. Bunny Exchange is not financial advice.
+  Prices are live and move with every trade. The figure you see is an estimate at the current supply, and your final price can differ slightly within the 3% slippage band. bunnyDEX is not financial advice.
 </Warning>
 
 <AccordionGroup>

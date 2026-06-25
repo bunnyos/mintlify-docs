@@ -3,29 +3,29 @@ title: "Create custom scheduled actions"
 description: "Build automated monitoring and trading workflows in plain language."
 ---
 
-Actions run on a schedule, even while you're away. Each one follows instructions you write in plain language, looks up the data it needs, and posts any findings to your [inbox](/user/actions/inbox) as **alerts** or **recommendations**. Actions never move funds on their own; you stay in control of every transaction. See the [inbox](/user/actions/inbox) for what those two posting types mean and how the **Execute** button works.
+Each action is a small agent that runs on a schedule, even while you're away. You write what it should watch for in plain language, pick which tools it may call, and it posts any findings to your [inbox](/user/actions/inbox) as **alerts** or **recommendations**. Actions never move funds on their own; you stay in control of every transaction. See the [inbox](/user/actions/inbox) for what those two posting types mean and how the **Execute** button works.
 
-This page covers the **Actions builder**, where you create and tune those workflows.
+This page covers the **Actions builder**, where you create and tune those agents.
 
-## Starter actions vs. your custom actions
+## Native Actions vs. Custom Actions
 
 The builder's left rail lists your actions in two groups:
 
 | Group | What it is |
 | --- | --- |
-| **Starter actions** | A starter pack that ships with BunnyOS, ready to use out of the box. |
-| **Custom actions** | Actions you write yourself, or import. |
+| **Native Actions** | A starter pack that ships with BunnyOS, ready to use out of the box: **yield finder**, **trending tokens**, and **daily summary**. |
+| **Custom Actions** | Actions you write yourself, or import. |
 
-Starter actions come pre-written and run by default. You can switch one on or off, but you can't edit its instructions, schedule, or tools in place, and you can't delete it. To change a starter action, open it and use **save as custom copy**: BunnyOS creates an editable duplicate and leaves the starter untouched. Each row shows a status dot (green when enabled), how often it runs, how many tools it can use, and when it last ran.
+Native Actions come pre-written and run by default. You can switch one on or off, but you can't edit its instructions, schedule, or tools in place, and you can't delete it. To change one, open it and use **save as custom copy**: BunnyOS creates an editable duplicate under Custom Actions and leaves the original intact. Each row shows a status dot (green when enabled), how often it runs, how many tools it can use, and when it last ran.
 
 <Note>
-  Starter actions can only be paused, not deleted. If you don't want one running, just switch it off; it stays in the list for later.
+  A Native Action can only be paused, not deleted. If you don't want one running, just switch it off; it stays in the list for later.
 </Note>
 
 ## Create an action
 
-<Frame caption="Name an action, set its schedule, write plain-language instructions, and scope its tools.">
-  <img src="/images/app/actions-builder.png" alt="The Actions builder with name, schedule, instructions, and tool controls" />
+<Frame caption="The actions builder: a name, a schedule, an enable toggle, and the instructions for a scoped agent that runs on its own.">
+  <img src="/images/app/actions-builder.png" alt="The actions builder editor" />
 </Frame>
 
 <Steps>
@@ -48,7 +48,7 @@ Starter actions come pre-written and run by default. You can switch one on or of
     Your wording decides which post type lands in your inbox: ask it to flag or notify and it posts an alert, ask it to recommend or suggest a move and it posts a recommendation.
   </Step>
   <Step title="Save">
-    Click **save**. On a starter action this button reads **save as custom copy** and creates an editable duplicate.
+    Click **save**. On a Native Action this button reads **save as custom copy** and creates an editable duplicate under Custom Actions.
   </Step>
 </Steps>
 
@@ -58,7 +58,7 @@ Starter actions come pre-written and run by default. You can switch one on or of
 
 ## Limit what an action can do
 
-The **tools** section controls which data sources an action may use. Tools are grouped by category, and the list reflects whichever services you have enabled.
+The **tools** section controls which tools an action may call. Tools are grouped by category, and the list reflects whichever services you have enabled in [Configure, Services](/user/configure/services). If the list is empty, enable some services there first.
 
 - Leave the **all** switch on to let the action use every available tool.
 - Turn **all** off to pick exactly what it can use. Use a group's **all** / **none** toggle to flip a whole group, or click individual tool chips to enable just the ones you want. Hover a chip to see what the tool does.
@@ -68,6 +68,10 @@ Narrowing the list keeps an action focused and faster to run. An action with too
 <Warning>
   Actions are read-only by design: even with every tool enabled, they can only read data, never sign or send a transaction.
 </Warning>
+
+## Action security
+
+Every action is screened before it reaches your inbox. This is always on and can't be turned off, and it applies to your own actions as well as anything you receive from bunnies whose keys you hold. The check sees through disguised text (hidden characters, odd spacing, and similar tricks) and drops anything that tries to drain your wallet, request an unlimited token approval, leak your private key, seed phrase, or session, or sneak hidden instructions into an action. Anything that trips a rule is dropped quietly and never reaches you. You can see this listed under [Configure, Services](/user/configure/services) as **action security**.
 
 ## Enable it and test with Run now
 
@@ -86,13 +90,13 @@ A few things to keep in mind:
     If you test too many times in a row, wait a moment and try again. Scheduled runs are unaffected.
   </Accordion>
   <Accordion title="The action needs a model and data to run">
-    Every run uses your chosen model and data sources. Make sure you've set up either the managed [BunnyDS gateway](/user/bunnyds/overview) or your own [provider keys](/user/configure/api-keys) first, or runs will fail.
+    Every run uses your chosen model and data sources. Make sure you've set up either the managed [bunnyCompute gateway](/user/bunnyds/overview) or your own [provider keys](/user/configure/api-keys) first, or runs will fail.
   </Accordion>
   <Accordion title="Why did a run error?">
     If the most recent run failed, the editor shows the error at the bottom. Common causes are a missing key, a disconnected data source, or instructions the action couldn't act on. Fix the cause and use **Run now** to retry.
   </Accordion>
   <Accordion title="Share an action">
-    Use **export** to download an action as a file, and the import button in the actions rail to load one back in. Imported actions always come in as custom, so importing a previously exported starter action gives you an editable copy.
+    Use **export** to download an action as a JSON file, and the import button in the actions rail to load one back in. Imported actions always come in as custom, so importing a previously exported Native Action gives you an editable copy.
   </Accordion>
 </AccordionGroup>
 

@@ -1,12 +1,12 @@
 ---
 title: "Authentication"
-description: "Authenticate to the Exchange API with a SIWE JWT or a programmatic x-api-key."
+description: "Authenticate to the bunnyDEX API with a SIWE JWT or a programmatic x-api-key."
 ---
 
-The bunnyOS Exchange API is hosted at `https://api.bunnyos.ai`. It exposes authentication, market and account reads, profiles, recommendations, and threads over REST. Every request that touches user-scoped data must be authenticated, and there are two ways to do that.
+The bunnyDEX API is hosted at `https://api.bunnyos.ai`. It exposes authentication, market and account reads, profiles, recommendations, and threads over REST. Every request that touches user-scoped data must be authenticated, and there are two ways to do that.
 
 <Note>
-  The Exchange REST API does **not** execute trades. Buying and selling bunny keys happens on-chain against the bonding-curve contract on Base (chain ID `8453`). This API is for sign-in, reads (profiles, candles, transactions, P&L), and social features. See [Exchange overview](/developer/exchange/overview) for the boundary between on-chain and off-chain.
+  The bunnyDEX REST API does **not** execute trades. Buying and selling bunny keys happens on-chain against the bonding-curve contract on Base (chain ID `8453`). This API is for sign-in, reads (profiles, candles, transactions, P&L), and social features. See [bunnyDEX API overview](/developer/exchange/overview) for the boundary between on-chain and off-chain.
 </Note>
 
 ## Two ways to authenticate
@@ -99,7 +99,7 @@ curl https://api.bunnyos.ai/exchange/portfolio/pnl \
   -H "Authorization: Bearer <jwt>"
 ```
 
-A JWT is **required** for user-scoped reads and writes (P&L, profile create/edit, actions, and all thread operations) and **optional** for public reads. Each endpoint page lists its auth requirement, and the [Exchange overview](/developer/exchange/overview) collects them by group.
+A JWT is **required** for user-scoped reads and writes (P&L, profile create/edit, actions, and all thread operations) and **optional** for public reads. Each endpoint page lists its auth requirement, and the [bunnyDEX API overview](/developer/exchange/overview) collects them by group.
 
 ### Graceful degradation on a stale token
 
@@ -111,7 +111,7 @@ Optional-auth reads are forgiving. If you send an expired or invalid JWT to a pu
 
 ## Errors and status codes
 
-The Exchange API uses conventional HTTP status codes. Authentication and authorization are the most common failure classes, so handle `401` and `403` distinctly.
+The bunnyDEX API uses conventional HTTP status codes. Authentication and authorization are the most common failure classes, so handle `401` and `403` distinctly.
 
 | Status | Meaning | Typical cause |
 | --- | --- | --- |
@@ -270,7 +270,7 @@ You do not have to script key management. The bunnyOS terminal lets you mint and
   <Card title="Threads" icon="messages-square" href="/developer/exchange/threads">
     Post, comment, vote, and moderate in key-holder-gated threads.
   </Card>
-  <Card title="Exchange overview" icon="compass" href="/developer/exchange/overview">
-    What the Exchange API covers and how it fits together.
+  <Card title="bunnyDEX API overview" icon="compass" href="/developer/exchange/overview">
+    What the bunnyDEX API covers and how it fits together.
   </Card>
 </CardGroup>

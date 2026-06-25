@@ -1,35 +1,39 @@
 ---
 title: "What is BunnyOS?"
-description: "Overview of the BunnyOS DeFi agent and its main surfaces on Base."
+description: "Overview of the BunnyOS agent and its main surfaces on Base."
 ---
 
-BunnyOS is an open-source DeFi agent and terminal built on [Base](https://base.org). You talk to it in plain language and it does the on-chain legwork for you: it can research tokens, build transactions, and automate recurring work that runs around the clock. The agent reads live market data and your wallet, builds the transaction, and hands it to you to approve. Nothing moves without your signature.
+BunnyOS is an open-source agent and terminal built on [Base](https://base.org). You talk to it in plain language and it does the on-chain legwork for you. There are four things it is built to do: chat with protocols and execute transactions for you, research tokens with built-in data sources, run actions that work for you around the clock, and stay open source so anyone can fork it and add features. The agent reads live market data and your wallet, builds the transaction, and hands it to you to approve. Nothing moves without your signature.
 
 ## A tour of the surfaces
 
-BunnyOS opens as a tabbed terminal. Each surface is a tab you can open, reorder, and close, so you can keep research, chat, and your portfolio side by side.
+BunnyOS opens as a tabbed terminal. It starts with a set of tabs you can reorder, and the floating chat opens over any of them so you can talk to the agent without leaving what you are doing.
+
+<Frame caption="The BunnyOS terminal: the main, bunnyDEX, actions, research, bunnyCompute, and configure tabs, with the chat open.">
+  <img src="/images/app/terminal-chat.png" alt="The BunnyOS terminal with the tab bar and the floating chat open" />
+</Frame>
 
 <CardGroup cols={2}>
-  <Card title="Chat" icon="message-circle" href="/user/getting-started/chat-intro">
-    Talk to the agent in natural language. It interprets what you want, pulls the data it needs, and proposes transactions for you to approve.
+  <Card title="main" icon="house" href="/user/portfolio/overview">
+    Your portfolio dashboard: your tokens and recent activity on Base, your total value, and your `$OS` balance, all in one place.
   </Card>
-  <Card title="Portfolio & Wallet" icon="wallet" href="/user/portfolio/overview">
-    See your connected Base wallet and live holdings. The agent reads your balances to answer questions and size trades.
+  <Card title="bunnyDEX" icon="key-round" href="/user/bunnyex/trading">
+    Trade *bunny keys*, settled in `$OS`. Holding someone's keys unlocks their gated profile, feed, and threads.
   </Card>
-  <Card title="Token Research" icon="search" href="/user/tokens/discovery">
+  <Card title="actions" icon="zap" href="/user/actions/inbox">
+    Live signals you can act on, plus a builder for scoped agents that run around the clock and a history of everything they posted.
+  </Card>
+  <Card title="research" icon="search" href="/user/tokens/discovery">
     Explore trending tokens and recent launches, then dig into a token with live market data and security findings.
   </Card>
-  <Card title="Bunny Exchange" icon="key-round" href="/user/bunnyex/trading">
-    The `bunnyEX` surface for trading *bunny keys*, settled in `$OS`. Holding keys unlocks a creator's gated feed and threads.
-  </Card>
-  <Card title="Perpetuals" icon="trending-up" href="/user/perps/trading">
-    The `perps` surface for leveraged long and short positions on Base.
-  </Card>
-  <Card title="Actions" icon="zap" href="/user/actions/inbox">
-    Build, share, and run reusable actions that work for you around the clock, with an inbox and history to track what ran.
-  </Card>
-  <Card title="BunnyDS" icon="server" href="/user/bunnyds/overview">
+  <Card title="bunnyCompute" icon="server" href="/user/bunnyds/overview">
     The managed option that powers research and security lookups without you bringing your own keys.
+  </Card>
+  <Card title="configure" icon="settings" href="/user/configure/services">
+    Set up your keys, model provider, services, and account from one place.
+  </Card>
+  <Card title="chat" icon="message-circle" href="/user/getting-started/chat-intro">
+    Talk to the agent in natural language. It interprets what you want, pulls the data it needs, and proposes transactions for you to approve.
   </Card>
 </CardGroup>
 
@@ -61,10 +65,10 @@ BunnyOS opens as a tabbed terminal. Each surface is a tab you can open, reorder,
     Once connected, select **open terminal** to enter BunnyOS and its tabbed surfaces.
   </Step>
   <Step title="Start a conversation">
-    Head to the Chat tab and try your first request. See [First steps with Bunny chat](/user/getting-started/chat-intro) for example prompts and what to expect.
+    Open the floating chat and try your first request. See [First steps with Bunny chat](/user/getting-started/chat-intro) for example prompts and what to expect.
   </Step>
 </Steps>
 
 <Accordion title="Do I need any keys to start?">
-  No. BunnyOS works out of the box with the managed **BunnyDS** option. See [Getting data: managed vs your own keys](/user/getting-started/data-and-keys).
+  No. BunnyOS works out of the box with the managed **bunnyCompute** option. See [Getting data: managed vs your own keys](/user/getting-started/data-and-keys).
 </Accordion>

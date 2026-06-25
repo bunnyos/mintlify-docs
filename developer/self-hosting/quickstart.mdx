@@ -5,7 +5,7 @@ description: "Clone, install, configure, and run BunnyOS locally in a few comman
 
 BunnyOS is an open-source AI agent for the Base ecosystem, and the first open-source project built on top of [Base MCP](https://mcp.base.org). It is designed to be self-hosted: you run it, you own your keys, and you can audit the whole stack. This page gets a local instance running end to end.
 
-The source lives at [github.com/bunnyos/base-agent](https://github.com/bunnyos/base-agent). By the end of these steps you will have the API server running on port `3000` and the web interface on port `5173`, talking to your own Postgres database.
+The source lives at [github.com/bunnyos/base-agent](https://github.com/bunnyos/base-agent). By the end of these steps you will have the API server running on port `5000` and the web interface on port `5173`, talking to your own Postgres database.
 
 <Note>
   BunnyOS holds **no private keys**. Your signing keys stay in your Base account, and the agent can only ask Base to draft a transaction that *you* approve. Self-hosting does not change that model, see [Security](/developer/self-hosting/security).
@@ -19,7 +19,7 @@ Make sure the following are installed and on your `PATH` before you start.
 |---|---|---|
 | [Node.js](https://nodejs.org) | **24** | The monorepo targets Node 24. |
 | [pnpm](https://pnpm.io) | latest | Used for the workspace install and per-package scripts. |
-| [PostgreSQL](https://www.postgresql.org) | **18** | All persistent state lives here. |
+| [PostgreSQL](https://www.postgresql.org) | **16** | All persistent state lives here. |
 
 <Tip>
   Check your versions with `node --version`, `pnpm --version`, and `postgres --version`. If you do not have pnpm yet, the quickest path is `corepack enable` (bundled with Node), or follow the [pnpm install guide](https://pnpm.io/installation).
@@ -61,7 +61,7 @@ Make sure the following are installed and on your `PATH` before you start.
   </Step>
 
   <Step title="Push the database schema">
-    With `DATABASE_URL` pointing at your Postgres 18 instance, push the schema into it.
+    With `DATABASE_URL` pointing at your Postgres 16 instance, push the schema into it.
 
     ```bash
     pnpm --filter @workspace/db run push
@@ -74,7 +74,7 @@ Make sure the following are installed and on your `PATH` before you start.
     BunnyOS runs as two processes. Open **two separate terminals** from the repo root.
 
     ```bash
-    # Terminal 1: API server on :3000
+    # Terminal 1: API server on :5000
     pnpm --filter @workspace/api-server run dev
     ```
 
@@ -83,7 +83,7 @@ Make sure the following are installed and on your `PATH` before you start.
     pnpm --filter @workspace/interface run dev
     ```
 
-    The interface proxies `/api` requests through to the API server on `:3000`, so both need to be running for the app to work.
+    The interface calls the API server cross-origin (the server allows it via CORS), so both processes need to be running for the app to work.
   </Step>
 
   <Step title="Open the UI">

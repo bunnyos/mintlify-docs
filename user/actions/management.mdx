@@ -1,15 +1,21 @@
 ---
 title: "Manage, edit & export actions"
-description: "Edit, test, import, export, and delete your actions."
+description: "Edit, run, import, export, and delete your actions, and review everything they have posted in history."
 ---
 
-Once you have actions running on a schedule, the **Actions builder** is also where you maintain them. From the action list on the left, select any action to open it in the editor on the right, where you can change how it behaves, test it on demand, share it as a file, or remove it.
+The Actions tab has three views you switch between at the top: **inbox**, **builder**, and **history**. This page covers the maintenance side: editing actions you already have in the **builder**, and reviewing everything they have posted in **history**.
 
-Actions are grouped into two sections: **Starter Actions** (the starter pack that ships with BunnyOS) and **Custom Actions** (the ones you create or import). Each row shows a status dot, how often it runs, how many tools it may use, and when it last ran.
+From the action list on the left, select any action to open it in the editor on the right, where you can change how it behaves, run it on demand, share it as a file, or remove it.
+
+Actions are grouped into two sections: **Native Actions** (the starter pack that ships with `$OS`) and **Custom Actions** (the ones you create or import). Each row shows a status dot, how often it runs, how many tools it may use, and when it last ran.
 
 <Note>
 If you are new to actions, start with [Build an action](/user/actions/builder) to learn what each field does, then come back here to manage what you have.
 </Note>
+
+<Frame caption="The builder: your actions on the left (Native starters and your own Custom ones), with the editor open on the right.">
+  <img src="/images/app/actions-builder.png" alt="The actions builder with the action list and editor" />
+</Frame>
 
 ## Edit an action
 
@@ -39,9 +45,9 @@ Selecting an action opens the editor. You can change any of the following, then 
 If the tools panel shows no tools available, enable some services first in [Configure, Services](/user/configure/services). Actions can only use tools you have turned on.
 </Tip>
 
-## Starter actions stay locked
+## Native actions stay locked
 
-Starter actions are protected: editing one saves your changes as a new custom copy rather than overwriting the original, which keeps its locked definition and cannot be deleted. See [Build an action](/user/actions/builder) for the full starter-lock rule.
+Native actions are protected: editing one and saving creates a **custom copy** instead of overwriting the original. The editor's save button reads **save as custom copy**, your changes land in a new editable action, and the native one stays unchanged and cannot be deleted. See [Build an action](/user/actions/builder) for the full lock rule.
 
 ## Test with Run now
 
@@ -52,12 +58,37 @@ Use **run now** to run an action once, on demand, without waiting for its schedu
 Custom actions have a **delete** button at the bottom of the editor. Deleting is permanent and removes the action from your list.
 
 <Warning>
-Deletion cannot be undone, and only custom actions can be deleted. Starter actions are protected and have no delete option.
+Deletion cannot be undone, and only custom actions can be deleted. Native actions are protected and have no delete option.
 </Warning>
 
 ## Export and import actions
 
 Actions can be saved to and loaded from files for backup or sharing, and an imported file always becomes a new custom action. See the export/import details in [Build an action](/user/actions/builder).
+
+## Review everything in history
+
+Switch to the **history** view to see everything your actions have ever posted: **pending**, **executed**, and **hidden**, newest first. The header shows a running tally, such as "4 pending · 12 executed · 7 hidden", and items are grouped by day under **today**, **yesterday**, and dated headers.
+
+Two filter rows let you narrow the list:
+
+| Filter | Options |
+| --- | --- |
+| **kind** | all, recommendations, alerts |
+| **status** | all, pending, executed, hidden |
+
+Each card carries its title, kind, status, time, the action that raised it, the description, any tokens mentioned, and the original execute instruction.
+
+<Frame caption="Actions history: every signal your actions have posted, with the pending / executed / hidden tally and filters.">
+  <img src="/images/app/actions-history.png" alt="The actions history view" />
+</Frame>
+
+### Restore a hidden item
+
+When you hide a card in your [inbox](/user/actions/inbox), it is not gone: it moves to history and shows up dimmed with an **unhide** button. Click **unhide** to restore it to the live inbox.
+
+<Tip>
+History is read-only apart from **unhide**. To stop an action from posting in the first place, pause it in the editor; to remove it for good, delete it.
+</Tip>
 
 ## Related pages
 
@@ -72,6 +103,6 @@ Actions can be saved to and loaded from files for backup or sharing, and an impo
     Enable the tools your actions are allowed to use.
   </Card>
   <Card title="Data & keys" icon="key" href="/user/getting-started/data-and-keys">
-    Choose between BunnyDS and bring-your-own-key for the models that power your actions.
+    Choose between bunnyCompute and bring-your-own-key for the models that power your actions.
   </Card>
 </CardGroup>
